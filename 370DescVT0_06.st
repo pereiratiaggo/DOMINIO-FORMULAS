@@ -30,10 +30,16 @@ VALOR DescFaltaAtestado;
 VALOR DescNaoUtilizado;
 VALOR SomaDesc;
 
+SalDias = VALEVE(8781);
 SalHoras = VALEVE(1);
 SalHorasRescisao = VALEVE(9179);
-SalDias = VALEVE(8781);
-SomaSal = SalHoras + SalHorasRescisao + SalDias;
+se(SalDias>0);
+  SomaSal = SalDias + SalHorasRescisao;
+fimse;
+se(SalDias<=0);
+  SomaSal = SalHoras + SalHorasRescisao;
+fimse;
+
 
 Comissao = VALEVE(37);
 ComissaoReflexo = VALEVE(853);
