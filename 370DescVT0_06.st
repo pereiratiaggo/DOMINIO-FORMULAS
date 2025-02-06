@@ -9,6 +9,7 @@ VALOR SalHorasRescisao;
 VALOR SalDias;
 VALOR Comissao;
 VALOR ComissaoReflexo;
+VALOR Insalubridade;
 VALOR SomaSal;
 
 VALOR HorasFaltas;
@@ -45,6 +46,11 @@ Comissao = VALEVE(37);
 ComissaoReflexo = VALEVE(853);
 se(SomaSal < 0.01);
  SomaSal = Comissao + ComissaoReflexo;
+fimse;
+
+Insalubridade = VALEVE(431);
+se(Insalubridade>0);
+  SomaSal = SomaSal + Insalubridade;
 fimse;
 
 HorasFaltas = VALEVE(40);

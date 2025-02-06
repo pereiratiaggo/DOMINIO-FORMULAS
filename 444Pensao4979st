@@ -1,0 +1,31 @@
+// https://suporte.dominioatendimento.com/sgsc/faces/solucao.html?codigo=8812
+// Leiaute - Definição de Fórmulas
+
+// Evento 444
+// PENSAO ALIMENTICIA (49-79)
+
+VALOR Taxa1;
+VALOR Pensao;
+
+VALOR Adiantamento;
+VALOR Liquido;
+VALOR DescVR;
+VALOR Taxa2;
+VALOR Pensao2;
+
+VALOR PensaoFinal;
+
+Taxa1 = 0.38;
+Taxa2 = 0.50;
+
+Pensao = Taxa1 * SALMIN;
+
+Adiantamento = VALEVE(981);
+Liquido = TLIQU;
+DescVR = VALEVE(426);
+Pensao2 = (Adiantamento + Liquido + Pensao + DescVR) * Taxa2;
+
+PensaoFinal = (Pensao2 - Pensao);
+
+VCALC = PensaoFinal;
+VINF = PensaoFinal;
