@@ -6,10 +6,9 @@
 
 VALOR SalHoras;
 VALOR SalHorasRescisao;
-VALOR SalDias;
 VALOR Comissao;
 VALOR ComissaoReflexo;
-VALOR Insalubridade;
+VALOR ComissaoGarantia;
 VALOR SomaSal;
 
 VALOR HorasFaltas;
@@ -23,7 +22,6 @@ VALOR Desconto;
 
 VALOR Fixo;
 VALOR Fixo2;
-VALOR Fixo3;
 
 VALOR Fornecido;
 
@@ -31,26 +29,15 @@ VALOR DescFaltaAtestado;
 VALOR DescNaoUtilizado;
 VALOR SomaDesc;
 
-SalDias = VALEVE(8781);
 SalHoras = VALEVE(1);
 SalHorasRescisao = VALEVE(9179);
-se(SalDias>0);
-  SomaSal = SalDias + SalHorasRescisao;
-fimse;
-se(SalDias<=0);
-  SomaSal = SalHoras + SalHorasRescisao;
-fimse;
-
+SomaSal = SalHoras + SalHorasRescisao;
 
 Comissao = VALEVE(37);
 ComissaoReflexo = VALEVE(853);
+ComissaoGarantia = VALEVE(8702);
 se(SomaSal < 0.01);
- SomaSal = Comissao + ComissaoReflexo;
-fimse;
-
-Insalubridade = VALEVE(431);
-se(Insalubridade>0);
-  SomaSal = SomaSal + Insalubridade;
+ SomaSal = Comissao + ComissaoReflexo + ComissaoGarantia;
 fimse;
 
 HorasFaltas = VALEVE(40);
@@ -63,35 +50,30 @@ Taxa = 0.06;
 Desconto = Sal * Taxa;
 VINF = Taxa * 100;
 
+Fixo = VALEVE(201);
+Fixo2 = VALEVE(48);
+
 Fornecido = VALEVE(9668);
 
 DescFaltaAtestado = VALEVE(415);
 DescNaoUtilizado = VALEVE(346);
-SomaDesc = Desconto + DescFaltaAtestado + DescNaoUtilizado;
+SomaDesc = Desconto + DescFaltaAtestado + DescNaoUtilizado; 
 
-se(Fornecido > 0);
+se(Fornecido>0);
   se (SomaDesc >= Fornecido);
-    Desconto = Fornecido - DescFaltaAtestado - DescNaoUtilizado;
-  fimse;
+    Desconto = Fornecido - DescFaltaAtestado - DescNaoUtilizado;    
+  fimse;  
 
-  se(Desconto >= Fornecido);
+  se(Desconto>=Fornecido);
     Desconto = Fornecido;
   fimse;
 fimse;
 
-Fixo = VALEVE(385);
-Fixo2 = VALEVE(201);
-Fixo3 = VALEVE(48);
-
-se (Fixo > 0);
+se (Fixo>0);
   Desconto = 0;
 fimse;
 
-se (Fixo2 > 0);
-  Desconto = 0;
-fimse;
-
-se (Fixo3 > 0);
+se (Fixo2>0);
   Desconto = 0;
 fimse;
 
