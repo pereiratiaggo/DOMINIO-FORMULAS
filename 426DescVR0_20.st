@@ -12,6 +12,7 @@ VALOR Taxa;
 VALOR Desconto;
 VALOR NaoUtilizado;
 VALOR NaoUtilizado2;
+VALOR NaoUtilizado3;
 
 VALOR Fixo;
 
@@ -19,9 +20,10 @@ Fornecido = VALEVE(9382);
 
 se(Fornecido > 0);
   NaoUtilizado = VALEVE(202);  
-  NaoUtilizado2 = VALEVE(405);
+  NaoUtilizado2 = VALEVE(364);
+  NaoUtilizado3 = VALEVE(405);
   Taxa = 0.20;
-  Desconto = (Fornecido - NaoUtilizado - NaoUtilizado2) * Taxa;
+  Desconto = (Fornecido - NaoUtilizado - NaoUtilizado2 - NaoUtilizado3) * Taxa;
   VINF = Taxa * 100;
 fimse;
 
