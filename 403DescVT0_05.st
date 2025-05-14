@@ -1,8 +1,8 @@
 // https://suporte.dominioatendimento.com/sgsc/faces/solucao.html?codigo=8812
 // Leiaute - Definição de Fórmulas
 
-// Evento 370
-// DESCONTO DE VALE TRANSPORTE 6%
+// Evento 403
+// DESCONTO DE VALE TRANSPORTE 5%
 
 VALOR SalHoras;
 VALOR SalHorasRescisao;
@@ -48,7 +48,7 @@ SomaFaltas = HorasFaltas + HorasFaltasDSR;
 
 Sal = SomaSal - SomaFaltas;
 
-Taxa = 0.06;
+Taxa = 0.05;
 Desconto = Sal * Taxa;
 VINF = Taxa * 100;
 
