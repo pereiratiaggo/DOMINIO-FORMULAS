@@ -48,7 +48,7 @@ SomaFaltas = HorasFaltas + HorasFaltasDSR;
 
 Sal = SomaSal - SomaFaltas;
 
-Taxa = 0.06;
+Taxa = 0.03;
 Desconto = Sal * Taxa;
 VINF = Taxa * 100;
 
