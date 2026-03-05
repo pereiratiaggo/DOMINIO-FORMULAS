@@ -17,7 +17,7 @@ Fornecido = VALEVE(9382);
 
 Faltas = VALEVE(40);
 
-Taxa = 0.20;  
+Taxa = 0.10;  
 se (Faltas > 0);
   Taxa = 0.20;  
 fimse;
